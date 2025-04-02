@@ -1,75 +1,181 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <title>西北民族大学的雪</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f8ff;
-      margin: 0;
-      padding: 20px;
-    }
-    h1 {
-      color: #333;
-      text-align: center;
-    }
-    h2 {
-      color: #555;
-      margin-top: 20px;
-    }
-    p {
-      color: #666;
-      line-height: 1.6;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 20px 0;
-    }
-    video {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 20px 0;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>穿越千年的声音盛宴 - 壮族三月三歌圩节</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;600&family=ZCOOL+XiaoWei&display=swap');
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background: #2a5a3c;
+            color: #fff8e7;
+            line-height: 1.8;
+            margin: 0;
+            padding-top: 60px;
+        }
+        
+
+        /* 新增图片统一样式 */
+        .media-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin: 50px 0;
+        }
+
+        .media-item {
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        iframe.media-item {
+            height: 400px;
+        }
+
+        .zhuang-border {
+            border: 10px solid #d32f2f;
+            border-radius: 15px;
+            padding: 5px;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .festival-title {
+            font-family: 'ZCOOL XiaoWei', cursive;
+            font-size: 3.5rem;
+            color: #ffd54f;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin: 30px 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .culture-card {
+            background: rgba(255,255,255,0.1);
+            margin: 30px 5%;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #ffd54f;
+            border-left: 5px solid #d32f2f;
+            padding-left: 15px;
+            margin: 30px 0;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 25px;
+            margin: 20px 0;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            height: 95%;
+            width: 3px;
+            background: #d32f2f;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(0,0,0,0.3);
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .festival-title {
+                font-size: 2.4rem;
+                padding: 15px;
+            }
+            h2 { font-size: 1.8rem; }
+            
+            /* 移动端图片适配 */
+            .media-item {
+                width: 90%;
+                height: auto;
+                max-height: 300px;
+            }
+            
+            iframe.media-item {
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>西北民族大学的雪</h1>
-    
-    <h2>校园雪景欣赏</h2>
-    <p>西北民族大学的冬天被洁白的雪覆盖，校园里银装素裹，美不胜收。无论是教学楼、图书馆还是操场，都展现出独特的冬日美景。</p>
-    <img src="https://i.postimg.cc/XvdLJV7j/640.jpg" alt="校园雪景">
-    <img src="https://i.postimg.cc/t4LDp1bv/640-7.jpg" alt="校园雪景">
-    
-    <h2>雪中的校园生活</h2>
-    <p>下雪天，校园里的学生们依然充满活力。打雪仗、堆雪人、拍照打卡，雪天为校园生活增添了许多乐趣。</p>
-    <iframe src="//player.bilibili.com/player.html?bvid=BV1pQ4y1n7L5&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 450px;"></iframe>
-    
-    <h2>下雪注意事项</h2>
-    <p>下雪天虽然美丽，但也需要注意安全。以下是一些下雪天的注意事项：</p>
-    <ul>
-      <li><strong>防滑保暖：</strong>穿防滑鞋，注意保暖，避免滑倒或冻伤。</li>
-      <li><strong>交通安全：</strong>雪天路滑，行走或骑车时需格外小心，避免摔倒。</li>
-      <li><strong>注意防寒：</strong>雪天气温较低，外出时戴好帽子、围巾和手套。</li>
-      <li><strong>保护设备：</strong>雪天湿滑，注意保护手机、相机等电子设备，避免进水。</li>
-    </ul>
-    <img src="https://i.postimg.cc/W3VnqQhM/640-2.jpg" alt="下雪注意事项">
-    
-    <h2>雪后校园的清理工作</h2>
-    <p>雪后，学校会组织工作人员清理道路和楼梯，确保师生出行安全。大家也可以积极参与扫雪活动，为校园安全贡献力量。</p>
-    <img src="https://i.postimg.cc/jSWvpHpJ/640-1.jpg" alt="雪后清理">
-  </div>
+    <div class="container">
+        <h1 class="festival-title zhuang-border">大地飞歌的浪漫诗篇</h1>
+        
+        <div class="culture-card">
+            <p>在桂西的青山绿水间，每年农历三月三日，壮乡大地便会响起穿越千年的歌声。这个始于唐代的古老节日，不仅是壮族人民纪念歌仙刘三姐的盛会，更是展现民族文化的立体画卷。让我们走进这场融合歌声、美食与舞蹈的民俗盛宴。</p>
+        </div>
+        <div class="media-container">
+            <img src="picture\OIP-C.jpg" alt="刘三姐雕像" class="media-item">
+            <iframe width="600" height="730" <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1202809150&bvid=BV1vF4m1K74u&cid=1500306875&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+        </div>
+
+        <section id="origin" class="culture-card">
+            <h2>刘三姐的歌声传说</h2>
+            <div class="timeline">
+                <p>在壮族口传历史中，歌仙刘三姐的传说最早可追溯至唐代景龙年间。这位生于宜州下枧河的壮族女子，以山歌为剑反抗地主压迫，最终化为黄莺飞入天际。据《庆远府志》记载，当地现存30余处"三姐歌台"，每年三月三期间接待超百万游客。歌圩的发展经历了三个重要阶段：唐宋时期的祭祀歌圩、明清时期的婚恋歌圩、以及现代的文化旅游歌圩。在田阳县敢壮山歌圩，至今保留着"焚香祭歌仙"的古老仪式，身着传统黑衣壮的歌者会先向歌仙岩行三拜礼，方始开唱。现代民族音乐学者已整理出72种传统歌调，其中"嘹歌"体系因多声部合唱被列入国家级非遗名录。</p>
+            </div>
+            <div class="media-container">
+                <img src="picture\微信图片_20250331154401.jpg" alt="山歌对唱" class="media-item">
+                <iframe width="600" height="730" iframe src="//player.bilibili.com/player.html?isOutside=true&aid=956427150&bvid=BV1Wp4y157qc&cid=1211002742&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe> 
+            </div>
+        </section>
+
+        <section id="customs" class="culture-card">
+            <h2>会说话的绣球</h2>
+            <div class="timeline">
+                <p>壮族绣球制作技艺已被列入联合国非遗名录，传统12瓣绣球每瓣绣有不同节气纹样，内填物从最早的粟米演变为现代的中药香草。在靖西旧州古镇，仍有用24k金线刺绣的"宫廷绣球"，需耗时月余完成。歌圩中的"抛绣球"仪式实为古代军事训练演变而来，《岭外代答》记载宋代邕州将士以青铜铸球进行投掷训练。现代对歌程序包含五个环节：引歌（序曲）、盘歌（问答）、甜歌（抒情）、斗歌（竞技）、和散歌（终章），其中斗歌环节考验即兴创作能力，优秀歌者能运用上百种比喻手法。碰彩蛋习俗中的染料取自枫叶、紫蓝草等天然植物，蛋壳裂纹图案被赋予"花开富贵""五谷丰登"等吉祥寓意。</p>
+            </div>
+            <div class="media-container">
+                <img src="picture\OIP (1).jpg" alt="绣球制作" class="media-item">
+                <img src="picture\OIP.jpg" alt="绣球展示" class="media-item">
+            </div>
+        </section>
+
+        <section id="bamboo" class="culture-card">
+            <h2>竹竿舞的韵律密码</h2>
+            <div class="timeline">
+                <p>源自黎族后传入壮族的竹竿舞，在三月三期间发展为大型集体舞蹈。传统跳法分为"三关""七星""梅花阵"等12种阵型，竹竿敲击节奏有二拍、三拍、四拍等变化。在巴马瑶族自治县，保留着用苦竹制作舞竿的古老传统，因苦竹击打音色清亮。专业舞者能完成"空中转体三周半"的高难度动作。舞蹈服饰讲究"银饰随节响"，舞者腰间银铃需与竹竿敲击声形成和声。现代创新版本融合街舞元素，青年舞者开发出"机械舞+竹竿舞"的混合表演形式，在抖音平台获得超千万点击量。</p>
+            </div>
+            <div class="media-container">
+                <img src="picture\微信图片_202503311544001.jpg" alt="竹竿舞表演" class="media-item">
+            </div>
+        </section>
+
+        <section id="rice" class="culture-card">
+            <h2>五色饭里的自然哲学</h2>
+            <div class="timeline">
+                <p>采用天然植物染色的五色糯米饭，蕴含着壮族"五行养生"的古老智慧。黑色来自枫叶汁液经三天发酵，黄色取自密蒙花煮沸液，紫色使用红蓝草二次提取技术，红色原料是新鲜苏木，白色保留稻米原色。在龙脊梯田周边村寨，仍保留着用山泉水浸泡12小时的古法工艺。蒸制时严格遵循"下层黑、中层紫、上层白"的视觉美学，最后拼成太极图案。现代食品科学家发现，染色植物中含有的花青素、黄酮类物质具有抗氧化功效。南宁非遗传承人研制出七彩糯米饭，新增的蓝色来自蝶豆花，绿色提取自苋菜叶绿素。</p>
+            </div>
+            <div class="media-container">
+                <img src="picture\78310a55b319ebc4941c8d198926cffc1f1716cd.webp" alt="五色糯米饭" class="media-item">
+                <iframe width="600" height="630" src="picture\24d10e4526fb58444e7fe76a18858d8d.mp4" frameborder="0" allowfullscreen class="media-item"></iframe>
+            </div>
+        </section>
+
+        <div class="culture-card">
+            <p>从黑衣壮的古调吟唱到抖音短视频的现代传播，三月三歌圩节见证着民族文化的薪火相传。当我们品味五色饭的天然滋味，感受竹竿舞的跃动节拍，实际上是在触摸一个民族生生不息的文化基因。这种跨越千年的文化传承，正是中华文明多元一体的生动注脚。</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>新闻传播学院 2023级新闻学1班 成敏 | 学号：P231014781</p>
+    </footer>
 </body>
 </html>
