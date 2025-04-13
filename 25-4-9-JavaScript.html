@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript语法练习2</title>
+    《<script>
+        //类和对象
+        //1.定义一个类
+        class idol{
+            //构造函数
+            constructor(name,age,school,work,group){
+                this.name = name;
+                this.age = age;
+                this.school =school;
+                this.work = work;
+                this.group =group
+            }
+            //方法
+            learn(){
+                console.log(`${this.name}  正在唱歌…… ${subject}.真棒！`);
+            }
+            work(){
+                console.log(`${this.name}  正在表演……`); 
+            }
+        }
+        //2.创建对象
+        let karry = new idol('王俊凯',25,'北京电影学院','演员','TFboys');
+        let roy = new idol('王源',24,'伯克利音乐学院','歌手','TFboys');
+        let Jackson = new idol('易烊千玺',24,'中央戏剧学院','演员','TFboys');
+        karry.learn('rap');
+        roy.learn('singing');
+        Jackson.learn('dancing');
+        karry.work();
+
+        class undergraduate extends idol{
+            constructor(name,age,school,work,group,experience){
+                super(name,age,school,work,group);
+                this.experience = experience;
+            }
+           
+            idol(crop) {
+                console.log(`${this.name}  正在实习…… ${crop}实习,获得经验值1000`);
+                console.log(super.work()); 
+            }
+        }
+        let hejunlin = new undergraduate('贺峻霖',20,'中国传媒大学','主持人','时代少年团','1000');
+        hejunlin.idol('rap');
+
+        //回调函数，函数作为参数传递给另一个函数
+        console.log('111111');
+
+        setTimeout(function(){
+            console.log('222222');
+        },2000);
+
+        console.log('333333');
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
