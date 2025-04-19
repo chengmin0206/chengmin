@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梦溪小筑·古代物理交互手账</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/4.css">
+</head>
+
+
+<body>
+  
+    <nav class="nav-panel">
+        <div class="nav-item active" data-page="0" style="background-image: url('计算机设计大赛封面图设计.png')"></div>
+        <div class="nav-item" data-page="1" style="background-image: url('图片4.png')"></div>
+        <div class="nav-item" data-page="2" style="background-image: url('图片3.png')"></div>
+        <div class="nav-item" data-page="3" style="background-image: url('图片3.png')"></div>
+        <div class="nav-item" data-page="4" style="background-image: url('交互.png')"></div>
+        <div class="nav-item" data-page="5" style="background-image: url('烧完.png')"></div>
+        <div class="nav-item" data-page="6" style="background-image: url('图片6.png')"></div>
+        <div class="nav-item" data-page="7" style="background-image: url('图片5.png')"></div>
+    </nav>
+
+    
+    <section class="page active" id="page0">
+        <h1 class="main-title">梦溪小筑·古代物理交互手账</h1>
+        <p style="text-align: center; font-size: 1.4em;"> ———五颜六色的白</p>
+        <div class="cover-section">
+            <img src="计算机设计大赛封面图设计.png" class="cover-image" alt="封面图1">
+            <img src="封面2.png" class="cover-image" alt="封面图2">
+        </div>
+       
+    </section>
+
+   
+    <section class="page" id="page1">
+        <div class="story-card">
+            <h2>汴京奇遇</h2>
+            <p>北宋元祐元年，汴京的街道上热闹非凡，人来人往，叫卖声、谈笑声交织成一片繁华的乐章。你正穿梭在这熙熙攘攘的人群中，突然阵神秘的风卷起地上的落叶，眼前白光一闪，一本古朴陈旧的书籍出现在你的手中。那书的封皮上刻着一些古老的字迹，散发着奇异的光芒。你刚一触碰到它，一股强大的吸力将你紧紧包裹，周围的景象开始急速旋转，仿佛整个世界都在崩塌。</p>
+            <img src="图片4.png" class="content-image" alt="汴京奇遇场景插图">
+        </div>
+    </section>
+
+    
+    <section class="page" id="page2">
+        <div class="story-card">
+            <h2>庭院初遇</h2>
+            <p>当你再次睁开眼睛时，发现自己置身于一个陌生而又充满古韵的庭院之中。远处，一位身着长袍、气质儒雅的男子正站在亭台楼阁之下，手持书卷，时而低头沉思，时而抬头望向天空。你心中一惊，仔细打量四周，才发现自己竟然穿越回了北宋，站在了沈括的身旁！</p>
+            <img src="图片3.png" class="content-image" alt="庭院初遇场景插图">
+        </div>
+    </section>
+
+    
+    <section class="page" id="page3">
+        <div class="story-card">
+            <h2>沈括年谱</h2>
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>1031年 · 钱塘初诞</h3>
+                            <p>沈括生于杭州官宦世家，自幼天赋过人，爱探索。他常在西湖畔赏景思索，也爱泡书斋探寻古人智慧。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>1054年 · 初入仕途</h3>
+                            <p>任沭阳县主簿，带百姓治水，改善农业，获百姓称赞。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>1063年 · 科举中第</h3>
+                            <p>科举中第，此后在朝廷任多职，为国家发展建言献策。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="图片1.jpg" class="content-image" alt="沈括年谱相关插图">
+        </div>
+    </section>
+    
+    <style>
+        .timeline-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 20px;
+            position: relative; 
+            z-index: 2; 
+        }
+       .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+       .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: #333;
+            transform: translateX(-50%);
+        }
+       .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+            padding: 20px;
+        }
+       .timeline-item:nth-child(odd) {
+            margin-left: auto;
+            padding-left: 60px;
+        }
+       .timeline-item:nth-child(even) {
+            margin-right: auto;
+            padding-right: 60px;
+            text-align: right;
+        }
+       .timeline-marker {
+            position: absolute;
+            top: 30px;
+            width: 16px;
+            height: 16px;
+            background: #4a90e2;
+            border-radius: 50%;
+            border: 3px solid #fff;
+        }
+       .timeline-item:nth-child(odd).timeline-marker {
+            left: -8px;
+        }
+       .timeline-item:nth-child(even).timeline-marker {
+            right: -8px;
+        }
+    
+       .timeline-content {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+       .timeline-content h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+       .timeline-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+       .content-image {
+            max-width: 100%; 
+            height: auto;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        @media (max-width: 768px) {
+           .timeline::before {
+                left: 20px;
+            }
+           .timeline-item {
+                width: 100%;
+                padding: 20px 0 0 40px;
+                margin-left: 0;
+            }
+           .timeline-item:nth-child(even) {
+                text-align: left;
+                padding: 20px 0 0 40px;
+            }
+           .timeline-marker {
+                left: 12px !important;
+                right: auto !important;
+            }
+        }
+    </style>
+    
+    <section class="page" id="page4">
+        <div class="story-card">
+            <h2>梦溪奇谭·1</h2>
+            <p>《梦溪笔谈》卷二十四《象数》中，以“日月之形如丸”突破传统宇宙观，提出“月本无光，犹银丸，日耀之乃光耳”，并以“粉涂弹丸，侧视如钩，对视正圜”的实验模拟月相，展现古代实证科学思维。</p>
+            <h2>梦溪奇谭·2</h2>
+            <p>卷十八《技艺》记载毕昇活字印刷术，详述 “胶泥刻字，火烧令坚” 的制字工艺，及 “松脂、蜡和纸灰” 固定活字的技术，强调 “印数十百千本则神速” 的高效性。毕昇首创的胶泥活字、字模分类（“每韵一帖，木格贮之”）等，构成现代活字印刷雏形。沈括的记录不仅是该技术唯一早期文献，更以精准笔触留存了宋代科技的璀璨创造，堪称文明传承的关键注脚。</p>
+            <img src="交互.png" class="content-image" alt="梦溪奇谭相关插图">
+        </div>
+    </section>
+
+    
+    <section class="page" id="page5">
+        <div class="story-card">
+            <h2>墨韵工坊</h2>
+            <h3>活字排韵</h3>
+            <p>动手做胶泥活字，按韵部排版、刷墨拓印，看汉字在手中「复活」，秒变毕昇同款「活字工匠」！</p>
+            <img src="烧完.png" class="content-image" alt="活字排韵相关插图" data-target="typesetting-content">
+            <div class="tooltip" id="typesetting-tooltip">
+                活字排韵是中国古代印刷术的重要发明，它通过制作单个的胶泥活字，按照韵部进行排版，然后刷墨拓印，从而实现书籍的批量印刷。这种工艺大大提高了印刷效率，为文化的传播和发展做出了重要贡献。
+            </div>
+            <h3>观天测宇</h3>
+            <p>用古式浑仪观测星星，模拟「月亮借太阳光发亮」的实验，像沈括一样琢磨宇宙的小秘密～</p>
+            <img src="浑仪.jpg" class="content-image" alt="观天测宇相关插图" data-target="astronomy-content">
+            <div class="tooltip" id="astronomy-tooltip">
+                观天测宇是古代天文学的重要内容，沈括在《梦溪笔谈》中对天体运行、月相变化等现象进行了深入的观察和研究。通过使用古式浑仪等天文仪器，我们可以模拟古代天文学家的观测过程，感受宇宙的奥秘。
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="page" id="page6">
+        <div class="story-card">
+            <h2>是告别 是开始</h2>
+            <p>沈括微笑着向你作揖，眼中满是期许：“今日之遇，实为幸事。望你将此间所学所见，传于后世，让更多人领略科学之妙。” 话音未落，白光一闪，你已回到现代。手中的《梦溪小筑》手账散发着淡淡的微光，每一页的记录都成为连接古今科学的纽带。</p>
+            <img src="图片6.png" class="content-image" alt="回归现代相关插图">
+        </div>
+    </section>
+
+    <section class="page" id="page7">
+        <div class="story-card">
+            <h2>回归现代</h2>
+            <p>在墨韵工坊与沈括共同完成活字印刷的瞬间，古朴的宣纸上跃然浮现出千年文明的印记，而浑仪转动间，星辰仿佛也在诉说着亘古不变的宇宙奥秘。正当你沉浸于这奇妙的科学世界时，那股神秘的吸力再次出现，周遭的景象开始变得模糊。</p>
+            <img src="图片5.png" class="content-image" alt="回归现代相关插图">
+        </div>
+    </section>
+
+
+    <script>
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const pageIndex = entry.target.id.replace('page', '');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    updateNav(pageIndex);
+                }
+            });
+        }, { threshold: 0.25 });
+
+        document.querySelectorAll('.page').forEach(page => observer.observe(page));
+
+     
+        function updateNav(index) {
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+                item.classList.remove('active');
+                if (item.dataset.page == index) item.classList.add('active');
+            });
+        }
+
+        const timelineData = [
+            { year: 1031, title: '钱塘初诞', content: '生于杭州官宦世家，自幼天赋过人，爱探索。他常在西湖畔赏景思索，也爱泡书斋探寻古人智慧。' },
+            { year: 1054, title: '初入仕途', content: '任沭阳县主簿，带百姓治水，改善农业，获百姓称赞。' },
+            { year: 1063, title: '科举中第', content: '科举中第，此后在朝廷任多职，为国家发展建言献策。' }
+        ];
+
+        function initTimeline() {
+            const container = document.createElement('div');
+            timelineData.forEach(item => {
+                const entry = document.createElement('div');
+                entry.className = 'timeline-entry';
+                entry.innerHTML = `
+                    <h3>${item.year} · ${item.title}</h3>
+                    <p>${item.content}</p>
+                `;
+                container.appendChild(entry);
+            });
+            document.querySelector('#page3').appendChild(container);
+        }
+
+       
+        function showWorkshop(type) {
+            const content = document.getElementById(type).innerHTML;
+            const newWindow = window.open('', '_blank');
+            newWindow.document.write(`
+                <style>${document.querySelector('style').innerHTML}</style>
+                ${content}
+            `);
+        }
+
+     
+        window.onload = () => {
+            initTimeline();
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    scrollToPage(item.dataset.page);
+                });
+            });
+            document.querySelectorAll('.content-image[data-target]').forEach(img => {
+                const tooltipId = img.alt === '活字排韵相关插图' ? 'typesetting-tooltip' : 'astronomy-tooltip';
+                const tooltip = document.getElementById(tooltipId);
+
+                img.addEventListener('mouseover', () => {
+                    tooltip.style.display = 'block';
+                    tooltip.style.left = img.offsetLeft + img.offsetWidth + 10 + 'px';
+                    tooltip.style.top = img.offsetTop + 'px';
+                    tooltip.style.height = img.offsetHeight + 'px';
+                });
+
+                img.addEventListener('mouseout', () => {
+                    tooltip.style.display = 'none';
+                });
+
+                img.addEventListener('click', () => {
+                    showWorkshop(img.dataset.target);
+                });
+            });
+        }
+
+        function scrollToPage(pageIndex) {
+            const page = document.getElementById(`page${pageIndex}`);
+            if (page) {
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                page.classList.add('active');
+                page.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+
+    <template id="typesetting-content">
+        <div class="workshop-page">
+            <h2>活字排韵工艺</h2>
+            <img src="烧完.png" class="content-image">
+            <p>北宋庆历年间（1041 - 1048），工匠毕昇首创胶泥活字印刷术，突破雕版印刷整版雕刻、无法复用的技术瓶颈。沈括在《梦溪笔谈·技艺》中不仅完整记录了活字选材、制作、排版、印刷的全流程，更从科学角度对该技术进行分析与优化，使这项发明得以完整留存于历史。</p>
+            <p>在技术改进方面，沈括强调胶泥的物理优势，其可塑性强、烧制后硬度适中，相比木活字不易变形，较金属活字成本更低且化学稳定性好，不与墨水发生反应；在排版工艺上，他提出分层排版和松脂蜡粘合剂体系，通过铁板导热实现快速熔合与冷却，配合铁范灵活调整版面尺寸；此外，沈括还主张活字尺寸标准化，要求字模厚度统一，以确保印刷压力均匀，显著提升排版效率。
+                该技术以细腻黏土制成活字，经刻制、低温烧制（约600℃）后形成陶质字模，按韵部或部首分类存放。印刷时，在铁板上铺设松脂与蜡的粘合剂，以铁范固定排版区域，拣选活字紧密排列并嵌入竹楔加固。加热使粘合剂熔化后，用平板压实活字，冷却固定后即可刷墨印刷，印毕再次加热回收活字循环使用。</p>
+            <p>这项发明显著降低印刷成本、提升效率，尤其适用于批量印刷。虽存在陶质活字易磨损、排版需熟练技艺等局限，但经元代木活字改良，沿丝绸之路传播至东亚、欧洲，直接启发15世纪德国古腾堡铅合金活字印刷术，为文艺复兴奠定技术基础，对人类文明传播产生深远影响。沈括的记录与改进，堪称古代科技传承与创新的典范。</p>
+        </div>
+    </template>
+    <template id="astronomy-content">
+        <div class="workshop-page">
+            <h2>观天测宇实验</h2>
+            <img src="浑仪.jpg" class="content-image">
+            <p>在古代中国，浑仪就像一台神秘的“星空测绘仪”，由层层同心圆环组成，专门用来测量日月星辰的位置。从汉代张衡到唐代李淳风，一代代天文学家不断改进，但复杂的结构反而成了观测的“绊脚石”。</p>
+            <p> 1072年，北宋因日食预报失误急需革新历法，沈括临危受命，扛起了改造浑仪的重任。他做的第一件事就是“断舍离”：果断去掉白道环，让赤道环和黄道环清晰可见，再也不怕视野被遮挡！面对北极星位置偏差的难题，沈括化身“星空侦探”，连续多夜蹲守观测，终于找准天球北极，精准校准浑仪极轴。</p>
+            <p>他还为浑仪升级“硬件”：用铜铸环圈、精铁轴承，将刻度精度提升到0.25度；创新“软件”系统，提出多人分工观测和晷影校正法。沈括的这些创举，不仅让浑仪观测更精准，更为后世研究岁差奠定基础，甚至启发郭守敬发明了现代赤道仪的雏形——简仪，堪称古代天文仪器界的“技术革命”！</p>
+        </div>
+    </template>
+
+
+    <footer>
+        <p>西北民族大学 新闻传播学院 2023级新闻学1班 成敏 | 2023级新闻学2班 刘轩 | 2023级新闻学1班 郭仪</p>
+    </footer>
+    <style>footer {
+        text-align: center;
+        padding: 30px;
+        background: rgba(0,0,0,0.3);
+        margin-top: 50px;
+    }</style>
+    
+</body>
+
+</html>
+    

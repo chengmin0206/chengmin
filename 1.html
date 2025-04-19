@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梦溪小筑·古代物理交互手账</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --ink-color: #2c443d;
+            --paper-color: #f5f0e1;
+            --accent-gold: #c9a769;
+            --dark-green: #1a2f28;
+            --main-green: #2c5f2d;
+            --background-color: #e6e2d9;
+        }
+
+        body {
+            margin: 0;
+            background: 
+                linear-gradient(45deg, 
+                    rgba(26,47,40,0.9) 0%, 
+                    rgba(44,95,45,0.9) 100%),
+                url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoWWpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0uqwS5ExsmP9AxbDTc9JwgneAT5vTiUSm1E7BSflSt3bfa1tv8Di3R8n3Af7MNWzs49hmauE2wP+ttrq+AsWpFG2awvsuOqbipWHgtuvuaAE+A1Z/7gC9hesnr+7wqCwG8c5yAg3AL1fm8T9AZtp/bbJGwl1pNrE7RuOX7PeMRUERVaPpEs+yqeoSmuOlokqw49pgomjLeh7icHNlG19yjs6XXOMedYm5xH2YxpV2tc0Ro2jJfxC50ApuxGob7lMsxfTbeUv07TyYxpeLucEH1gNd4IKH2LAg5TdVhlCafZvpskfncCfx8pOhJzd76bJWeYFnFciwcYfubRc12Ip/ppIhA1/mSZ/RxjFDrJC5xifFjJpY2Xl5zXdguFqYyTR1zSp1Y9p+tktDYYSNflcxI0iyO4TPBdlRcpeqj88/APVx4X5LAA5BSTg9AiUUztT9aj8AbPDZ73JudDJc6k7eRIqy1nEUJI9vg5TBY4A0nqjNGuruYLiYlOrmPHXIZKPpWUxGFkLZoAF3g1l4RoCAAAArXpUWHRSYXcgcHJvZmlsZSB0eXBlIGlwdGMAAHic4/IMCHFWKCjKT8vMSeVSAAMjCy5jCxMjE0MjEzAHcxAHi5A0DxRwQYgBALJBCZ5DsvZQAAAAAElFTkSuQmCC');
+            background-color: var(--background-color);
+            font-family: 'Ma Shan Zheng', cursive;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            color: var(--ink-color);
+        }
+
+        /* 动态卷轴背景 */
+        .scroll-effect {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    rgba(245,240,225,0.1) 0px,
+                    rgba(245,240,225,0.1) 39px,
+                    rgba(200,180,150,0.15) 40px
+                );
+            z-index: -1;
+            transition: transform 0.3s ease;
+        }
+
+        /* 导航栏 */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(245,240,225,0.95);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent-gold);
+            transition: top 0.3s ease;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .nav-item {
+            margin: 0 2.5rem;
+            cursor: pointer;
+            font-size: 1.4rem;
+            color: var(--dark-green);
+            position: relative;
+            transition: 0.3s all;
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: 0.3s all;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* 主标题 */
+        .main-title {
+            text-align: center;
+            font-size: 4rem;
+            color: var(--paper-color);
+            margin: 120px auto 50px;
+            text-shadow: 3px 3px 0 var(--dark-green);
+            position: relative;
+            letter-spacing: 0.2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .main-title::before {
+            content: '❁';
+            position: absolute;
+            left: -50px;
+            top: -30px;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+        }
+
+        /* 内容区块 */
+        .content-section {
+            display: none;
+            max-width: 1000px;
+            margin: 150px auto 80px;
+            padding: 3rem;
+            background: rgba(245,240,225,0.95);
+            border: 3px solid var(--accent-gold);
+            border-radius: 5px;
+            box-shadow: 15px 15px 30px rgba(0,0,0,0.3);
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* 时间线布局 */
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline-item {
+            margin: 40px 0;
+            padding-left: 200px;
+            position: relative;
+        }
+
+        .timeline-year {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+        }
+
+        /* 折叠面板 */
+        .accordion {
+            border: 2px solid var(--dark-green);
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header {
+            padding: 1rem;
+            background: var(--dark-green);
+            color: var(--paper-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: #23433a;
+        }
+
+        /* 图片画廊 */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            transition: 0.3s transform;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border: 2px solid var(--accent-gold);
+            transition: filter 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            filter: brightness(1.1);
+        }
+
+        /* 游戏入口 */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .game-card {
+            background: rgba(255,255,255,0.9);
+            border: 3px solid var(--dark-green);
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s all;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .game-card::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 0%,
+                rgba(201,167,105,0.2) 50%,
+                transparent 100%
+            );
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        /* 剧情弹窗 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: var(--paper-color);
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            animation-name: animatetop;
+            animation-duration: 0.4s;
+            position: relative;
+        }
+
+        @keyframes animatetop {
+            from {top: -300px; opacity: 0}
+            to {top: 0; opacity: 1}
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* 云雾效果 */
+        .clouds {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/png;base64,iVBORw0KGgo...') repeat;
+            animation: cloudMove 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes cloudMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        /* 动态水墨效果 */
+        .ink-effect {
+            position: absolute;
+            background: radial-gradient(circle, var(--main-green) 10%, transparent 60%);
+            filter: blur(20px);
+            transform: translate(-50%, -50%);
+            animation: inkFade 10s infinite;
+        }
+
+        @keyframes inkFade {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-effect"></div>
+    <div class="clouds"></div>
+    
+    <div class="nav-container">
+        <nav class="nav-menu">
+            <div class="nav-item" data-section="intro">墨客生平</div>
+            <div class="nav-item" data-section="about">梦溪奇谭</div>
+            <div class="nav-item" data-section="games">巧匠工坊</div>
+        </nav>
+    </div>
+
+    <h1 class="main-title">梦溪小筑·古代物理交互手账</h1>
+
+    <section id="intro" class="content-section">
+        <h2>沈括年谱</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">1031</div>
+                <h3>钱塘初诞</h3>
+                <p>1031年，沈括生于杭州官宦世家，自幼天赋过人，爱探索。他常在西湖畔赏景思索，也爱泡书斋探寻古人智慧。</p>
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/200/300" alt="少年沈括">
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1054</div>
+                <h3>初入仕途</h3>
+                <p>1054年，沈括任沭阳县主簿。当地水患多，他带百姓治水，改善农业，获百姓称赞。</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1063</div>
+                <h3>科举中第</h3>
+                <p>1063年，沈括科举中第，此后在朝廷任多职，为国家发展建言献策。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="content-section">
+        <h2>笔谈精要</h2>
+        <div class="accordion">
+            <div class="accordion-header">
+                <span>卷二十四·象数</span>
+                <span>▼</span>
+            </div>
+            <div class="accordion-content">
+                <p>沈括提出“日月之形如丸”，他觉得日月像球，月亮靠太阳发光，就像球被照亮一样。这观点在当时超有开创性！</p>
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion-header">
+                <span>卷十八·技艺</span>
+                <span>▼</span>
+            </div>
+            <div class="accordion-content">
+                <p>沈括记载了毕昇发明活字印刷术，毕昇用胶泥刻字火烧成印，排版后加热药剂固定活字就能印刷，超厉害！</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="games" class="content-section">
+        <div class="game-grid">
+            <div class="game-card" data-game="moveable-type">
+                <h3>活字排阵</h3>
+                <p>来体验活字印刷术，做泥活字、排版，感受毕昇智慧！</p>
+                <div class="game-preview"></div>
+            </div>
+            <div class="game-card" data-game="armillary">
+                <h3>观天测宇</h3>
+                <p>化身古代天文学家，用浑仪观测星辰，探索宇宙奥秘！</p>
+            </div>
+            <div class="game-card" data-game="calendar">
+                <h3>节气轮转</h3>
+                <p>体验十二气历，按节气安排农事，感受传统文化魅力！</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 剧情弹窗 -->
+    <div id="story-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>北宋元祐元年，汴京的街道上热闹非凡，人来人往，叫卖声、谈笑声交织成一片繁华的乐章。你正穿梭在这熙熙攘攘的人群中，突然，一阵神秘的风卷起地上的落叶，眼前白光一闪，一本古朴陈旧的书籍出现在你的手中。那书的封皮上刻着一些古老的字迹，散发着奇异的光芒。你刚一触碰到它，一股强大的吸力将你紧紧包裹，周围的景象开始急速旋转，仿佛整个世界都在崩塌。</p>
+            <p>当你再次睁开眼睛时，发现自己置身于一个陌生而又充满古韵的庭院之中。远处，一位身着长袍、气质儒雅的男子正站在亭台楼阁之下，手持书卷，时而低头沉思，时而抬头望向天空。你心中一惊，仔细打量四周，才发现自己竟然穿越回了北宋，站在了沈括的身旁！</p>
+            <p>此时，沈括缓缓转过身来，目光落在你的身上，他的眼中闪过一丝惊讶，但很快便恢复了平静。他微笑着向你走来，拱手说道：“这位朋友，看你身着异服，想必是来自远方。既来之，则安之，不如随我一同探索这世间的奇妙之理。”说罢，便邀请你一同走进他的世界，开启一场关于古代科学的探索之旅。</p>
+            <button id="start-btn">开始探索</button>
+        </div>
+    </div>
+
+    <script>
+        // 增强型交互逻辑
+        class ScrollManager {
+            constructor() {
+                this.lastScroll = 0;
+                this.initParallax();
+                this.initNavHide();
+            }
+            
+            initParallax() {
+                window.addEventListener('scroll', () => {
+                    const scrolled = window.pageYOffset;
+                    document.querySelector('.scroll-effect').style.transform = 
+                        `translateY(${scrolled * 0.5}px)`;
+                });
+            }
+
+            initNavHide() {
+                window.addEventListener('scroll', () => {
+                    const currentScroll = window.pageYOffset;
+                    const nav = document.querySelector('.nav-container');
+                    if (currentScroll > this.lastScroll) {
+                        nav.style.top = '-80px';
+                    } else {
+                        nav.style.top = '0';
+                    }
+                    this.lastScroll = currentScroll;
+                });
+            }
+        }
+
+        // 折叠面板控制器
+        class Accordion {
+            constructor(container) {
+                this.headers = container.querySelectorAll('.accordion-header');
+                this.init();
+            }
+
+            init() {
+                this.headers.forEach(header => {
+                    header.addEventListener('click', () => {
+                        const content = header.nextElementSibling;
+                        content.style.display = 
+                            content.style.display === 'block' ? 'none' : 'block';
+                        header.querySelector('span:last-child').textContent = 
+                            content.style.display === 'block' ? '▲' : '▼';
+                    });
+                });
+            }
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            new ScrollManager();
+            new Accordion(document.getElementById('about'));
+            
+            // 图片延迟加载
+            const lazyImages = document.querySelectorAll('.gallery-item img');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            lazyImages.forEach(img => observer.observe(img));
+
+            // 初始化显示剧情
+            showModal();
+            createInkEffects();
+
+            // 导航交互
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const sectionId = item.dataset.section;
+                    document.querySelectorAll('.content-section').forEach(sec => {
+                        sec.style.display = 'none';
+                    });
+                    document.getElementById(sectionId).style.display = 'block';
+                });
+            });
+
+            // 游戏入口交互
+            document.querySelectorAll('.game-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const gameType = card.dataset.game;
+                    launchGame(gameType);
+                });
+            });
+
+            // 剧情弹窗关闭
+            const modal = document.getElementById('story-modal');
+            const closeBtn = document.querySelector('.close');
+            const startBtn = document.getElementById('start-btn');
+
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            startBtn.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+
+        // 动态水墨效果
+        function createInkEffects() {
+            for(let i = 0; i < 5; i++) {
+                const ink = document.createElement('div');
+                ink.className = 'ink-effect';
+                ink.style.left = `${Math.random() * 100}vw`;
+                ink.style.top = `${Math.random() * 100}vh`;
+                ink.style.width = `${Math.random() * 200 + 100}px`;
+                ink.style.height = `${Math.random() * 200 + 100}px`;
+                document.body.appendChild(ink);
+            }
+        }
+
+        function launchGame(type) {
+            // 根据类型加载不同游戏模块
+            console.log(`启动游戏：${type}`);
+        }
+
+        function showModal() {
+            const modal = document.getElementById('story-modal');
+            modal.style.display = "block";
+        }
+    </script>
+</body>
+</html>
+    

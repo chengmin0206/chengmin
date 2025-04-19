@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梦溪小筑：古代物理交互手账</title>
+    <link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-color: #2c5f2d;
+            --accent-color: #d4af37;
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(45deg, #e8f5e9, #c8e6c9);
+            font-family: 'Zhi Mang Xing', cursive;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 云雾效果 */
+        .clouds {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/png;base64,iVBORw0KGgo...') repeat;
+            animation: cloudMove 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        .nav-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .nav-item {
+            margin: 0 2rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--main-color);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--main-color);
+            margin-top: 100px;
+            animation: fadeIn 2s;
+        }
+
+        /* 内容区块 */
+        .content-section {
+            display: none;
+            max-width: 800px;
+            margin: 120px auto 50px;
+            padding: 2rem;
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* 游戏入口 */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .game-card {
+            border: 2px solid var(--main-color);
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        @keyframes cloudMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        /* 动态水墨效果 */
+        .ink-effect {
+            position: absolute;
+            background: radial-gradient(circle, var(--main-color) 10%, transparent 60%);
+            filter: blur(20px);
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="clouds"></div>
+    
+    <div class="nav-container">
+        <nav class="nav-menu">
+            <div class="nav-item" data-section="intro">作者简介</div>
+            <div class="nav-item" data-section="about">梦溪笔谈</div>
+            <div class="nav-item" data-section="games">墨韵工坊</div>
+        </nav>
+    </div>
+
+    <h1 class="main-title">梦溪小筑：古代物理交互手账</h1>
+
+    <section id="intro" class="content-section">
+        <h2>沈括：北宋科学通才</h2>
+        <p>公元1031年生于杭州，天文、历法、地理、物理无所不精...</p>
+    </section>
+
+    <section id="about" class="content-section">
+        <h2>梦溪笔谈：中国古代科技百科全书</h2>
+        <p>成书于1086年，收录609条科技见解...</p>
+    </section>
+
+    <section id="games" class="content-section">
+        <div class="game-grid">
+            <div class="game-card" data-game="moveable-type">
+                <h3>活字排韵</h3>
+                <p>体验胶泥活字印刷术</p>
+            </div>
+            <div class="game-card" data-game="armillary">
+                <h3>观天测宇</h3>
+                <p>浑仪观测体验</p>
+            </div>
+            <div class="game-card" data-game="calendar">
+                <h3>节气轮转</h3>
+                <p>十二气历实践</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 剧情弹窗 -->
+    <div id="story-modal" class="modal">
+        <div class="modal-content">
+            <p>北宋元祐元年，你意外获得沈括手稿...</p>
+            <button id="start-btn">开始探索</button>
+        </div>
+    </div>
+
+    <script>
+        // 初始化显示剧情
+        document.addEventListener('DOMContentLoaded', () => {
+            showModal();
+            createInkEffects();
+        });
+
+        // 导航交互
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const sectionId = item.dataset.section;
+                document.querySelectorAll('.content-section').forEach(sec => {
+                    sec.style.display = 'none';
+                });
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+
+        // 动态水墨效果
+        function createInkEffects() {
+            for(let i = 0; i < 5; i++) {
+                const ink = document.createElement('div');
+                ink.className = 'ink-effect';
+                // 随机位置和尺寸...
+                document.body.appendChild(ink);
+            }
+        }
+
+        // 游戏入口交互
+        document.querySelectorAll('.game-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const gameType = card.dataset.game;
+                launchGame(gameType);
+            });
+        });
+
+        function launchGame(type) {
+            // 根据类型加载不同游戏模块
+            console.log(`启动游戏：${type}`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+:root {
+    --primary: #3e2723;
+    --secondary: #795548;
+    --accent: #d7ccc8;
+    --bg: #fffef7;
+}
+
+body {
+    margin: 0;
+    font-family: 'Zhi Mang Xing', cursive;
+    background: var(--bg);
+    color: var(--primary);
+    scroll-behavior: smooth;
+}
+
+/* 导航栏 */
+.nav-panel {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 8px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+    width: 32px;
+    height: 32px;
+    margin: 18px 0;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.nav-item.active {
+    transform: scale(1.2);
+}
+
+/* 页面区块 */
+.page {
+    min-height: 100vh;
+    padding: 120px 200px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+    box-sizing: border-box;
+}
+
+.page.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 封面样式 */
+.cover-section {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-top: 100px;
+}
+
+.cover-image {
+    width: 320px;
+    height: 450px;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+    box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* 标题样式 */
+.main-title {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 5rem;
+    text-align: center;
+    margin: 2rem 0;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 内容卡片 */
+.story-card {
+    background: linear-gradient(to bottom right, #fff 0%, #f3e9d2 100%);
+    padding: 40px;
+    border-radius: 8px;
+    margin: 60px 0;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--accent);
+}
+
+/* 图片样式 */
+.content-image {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    display: block;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* 悬浮提示样式 */
+.tooltip {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1;
+    width: 300px;
+    font-size: 1.25rem;
+    overflow-y: auto;
+}
+
+@media (max-width: 1200px) {
+    .page {
+        padding: 100px 80px;
+    }
+
+    .cover-image {
+        width: 280px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-panel {
+        left: 10px;
+    }
+
+    .page {
+        padding: 100px 30px;
+    }
+
+    .main-title {
+        font-size: 3rem;
+    }
+
+    .cover-section {
+        flex-direction: column;
+    }
+
+    .cover-image {
+        width: 85%;
+        height: auto;
+    }
+}

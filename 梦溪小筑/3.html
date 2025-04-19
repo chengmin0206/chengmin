@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梦溪小筑·古代物理交互手账</title>
+    <link rel="stylesheet" href="./css/3.css">
+</head>
+<body>
+    <!-- 左侧导航栏 -->
+    <div class="nav-bar">
+        <a href="#cover" class="nav-item" style="background-image: url('图片1.jpg')"></a>
+        <a href="#chapter1" class="nav-item" style="background-image: url('图片2.png')"></a>
+        <a href="#chapter2" class="nav-item" style="background-image: url('图片3.png')"></a>
+        <a href="#chronology" class="nav-item" style="background-image: url('图片4.png')"></a>
+        <a href="#miscellany" class="nav-item" style="background-image: url('图片5.png')"></a>
+        <a href="#workshop" class="nav-item" style="background-image: url('图片6.png')"></a>
+    </div>
+
+    <!-- 封面页 -->
+    <section id="cover" class="section">
+        <h1 class="title">梦溪小筑·古代物理交互手账</h1>
+        <p class="team">队伍：五颜六色的白（成敏 刘轩 郭仪）</p>
+        <div class="cover-images">
+            <div class="cover-image" style="background-image: url('图片1.jpg')"></div>
+            <div class="cover-image" style="background-image: url('图片2.png')"></div>
+        </div>
+    </section>
+
+    <!-- 基础点击章节1 -->
+    <section id="chapter1" class="section">
+        <div class="content-section">
+            <h2 class="section-title">基础点击</h2>
+            <p class="paragraph">
+                北宋元祐元年，汴京的街道上热闹非凡，人来人往，叫卖声、谈笑声交织成一片繁华的乐章。你正穿梭在这熙熙攘攘的人群中，突然阵神秘的风卷起地上的落叶，眼前白光一闪，一本古朴陈旧的书籍出现在你的手中。那书的封皮上刻着一些古老的字迹，散发着奇异的光芒。你刚一触碰到它，一股强大的吸力将你紧紧包裹，周围的景象开始急速旋转，仿佛整个世界都在崩塌。
+            </p>
+            <div class="image-container">
+                <img src="图片3.png" alt="穿越场景" class="story-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- 基础点击章节2 -->
+    <section id="chapter2" class="section">
+        <div class="content-section">
+            <h2 class="section-title">基础点击</h2>
+            <p class="paragraph">
+                当你再次睁开眼睛时，发现自己置身于一个陌生而又充满古韵的庭院之中。远处，一位身着长袍、气质儒雅的男子正站在亭台楼阁之下，手持书卷，时而低头沉思，时而抬头望向天空。你心中一惊，仔细打量四周，才发现自己竟然穿越回了北宋，站在了沈括的身旁!
+            </p>
+            <div class="image-container">
+                <img src="图片4.png" alt="沈括庭院" class="story-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- 沈括年谱（自动浮现） -->
+    <section id="chronology" class="section">
+        <div class="content-section">
+            <h2 class="section-title">沈括年谱</h2>
+            <div class="timeline">
+                <div class="timeline-item paragraph" data-year="1031">
+                    钱塘初诞  1031年，沈括生于杭州官宦世家，自幼天赋过人，爱探索。他常在西湖畔赏景思索，也爱泡书斋探寻古人智慧。
+                </div>
+                <div class="timeline-item paragraph" data-year="1054">
+                    初入仕途  1054年，沈括任沭阳县主簿。当地水患多，他带百姓治水，改善农业，获百姓称赞。
+                </div>
+                <div class="timeline-item paragraph" data-year="1063">
+                    科举中第  1063年，沈括科举中第，此后在朝廷任多职，为国家发展建言献策。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 梦溪奇谭（自动浮现） -->
+    <section id="miscellany" class="section">
+        <div class="content-section">
+            <h2 class="section-title">梦溪奇谭</h2>
+            <p class="paragraph">
+                沈括《梦溪笔谈》卷二十四《象数》中，以 “日月之形如丸” 突破传统宇宙观，提出 “月本无光，犹银丸，日耀之乃光耳”，并以 “粉涂弹丸，侧视如钩，对视正圜” 的实验模拟月相，展现古代实证科学思维。其对日月运行的观察已含天体互动认知，测算朔望月周期精度极高，为后世历法奠定基础。
+            </p>
+            <div class="image-container">
+                <img src="图片5.png" alt="天文实验" class="story-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- 墨韵工坊（交互功能） -->
+    <section id="workshop" class="section">
+        <div class="content-section">
+            <h2 class="section-title">墨韵工坊</h2>
+            
+            <div class="interactive-module">
+                <h3 class="module-title">活字排韵</h3>
+                <p class="paragraph">
+                    动手做胶泥活字，按韵部排版、刷墨拓印，看汉字在手中「复活」，秒变毕昇同款「活字工匠」！
+                </p>
+                <a href="#model1" class="interact-btn" onclick="showModel('活字排韵建模内容')">查看建模</a>
+            </div>
+
+            <div class="interactive-module">
+                <h3 class="module-title">观天测宇</h3>
+                <p class="paragraph">
+                    用古式浑仪观测星星，模拟「月亮借太阳光发亮」的实验，像沈括一样琢磨宇宙的小秘密～
+                </p>
+                <a href="#model2" class="interact-btn" onclick="showModel('观天测宇建模内容')">查看建模</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 结尾章节 -->
+    <section id="ending" class="section">
+        <div class="content-section">
+            <p class="paragraph">
+                在墨韵工坊与沈括共同完成活字印刷的瞬间，古朴的宣纸上跃然浮现出千年文明的印记，而浑仪转动间，星辰仿佛也在诉说着亘古不变的宇宙奥秘。正当你沉浸于这奇妙的科学世界时，那股神秘的吸力再次出现，周遭的景象开始变得模糊。
+            </p>
+            <p class="paragraph">
+                沈括微笑着向你作揖，眼中满是期许：“今日之遇，实为幸事。望你将此间所学所见，传于后世，让更多人领略科学之妙。” 话音未落，白光一闪，你已回到现代。手中的《梦溪小筑》手账散发着淡淡的微光，每一页的记录都成为连接古今科学的纽带。
+            </p>
+            <div class="image-container">
+                <img src="图片6.png" alt="回归场景" class="story-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>传承古代智慧，探索科学奥秘</p>
+    </footer>
+
+    <script>
+       
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+
+       
+        function showModel(content) {
+            alert('建模内容：' + content);
+          
+        }
+
+     
+        document.querySelectorAll('.nav-bar a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.href).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

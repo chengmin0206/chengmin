@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梦溪小筑·古代物理交互手账</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-bg: #f3eee8;
+            --accent-color: #6b5b4b;
+            --text-color: #4a4035;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--main-bg);
+            color: var(--text-color);
+            font-family: 'ZCOOL XiaoWei', cursive;
+            overflow-x: hidden;
+        }
+
+        /* 导航样式 */
+        .vertical-nav {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            background: #ccc;
+            border-radius: 50%;
+            margin: 15px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-dot.active {
+            background: var(--accent-color);
+            transform: scale(1.3);
+        }
+
+        /* 页面样式 */
+        .page {
+            width: 100vw;
+            height: 100vh;
+            padding: 50px 15%;
+            box-sizing: border-box;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s;
+        }
+
+        .page.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 首页样式 */
+        #page0 {
+            text-align: center;
+            padding-top: 15vh;
+        }
+
+        .main-title {
+            font-family: 'Zhi Mang Xing', cursive;
+            font-size: 4em;
+            color: var(--accent-color);
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 年谱页动画 */
+        .auto-reveal {
+            opacity: 0;
+            transition: all 1s;
+        }
+
+        /* 工坊交互 */
+        .workshop-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .workshop-btn {
+            padding: 15px 30px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 垂直导航 -->
+    <nav class="vertical-nav">
+        <div class="nav-dot active" data-page="0"></div>
+        <div class="nav-dot" data-page="1"></div>
+        <!-- 更多导航点... -->
+    </nav>
+
+    <!-- 页面内容 -->
+    <section class="page active" id="page0">
+        <h1 class="main-title">梦溪小筑·古代物理交互手账</h1>
+        <p style="font-size: 1.8em; margin-top: 2em;">五颜六色的白 · 成敏 刘轩 郭仪</p>
+    </section>
+
+    <section class="page" id="page1">
+        <div class="story-card">
+            <h2>汴京奇遇</h2>
+            <p>北宋元祐元年，汴京的街道上热闹非凡，人来人往，叫卖声、谈笑声交织成一片繁华的乐章。你正穿梭在这熙熙攘攘的人群中，突然阵神秘的风卷起地上的落叶，眼前白光一闪，一本古朴陈旧的书籍出现在你的手中。那书的封皮上刻着一些古老的字迹，散发着奇异的光芒。你刚一触碰到它，一股强大的吸力将你紧紧包裹，周围的景象开始急速旋转，仿佛整个世界都在崩塌。</p>
+        </div>
+    </section>
+
+    <!-- 第五页：年谱 -->
+<section class="page" id="page4">
+    <div class="story-card">
+        <h2>沈括年谱</h2>
+        <div class="auto-reveal">
+            <h3>1031年 · 钱塘初诞</h3>
+            <p>沈括生于杭州官宦世家，自幼天赋过人，爱探索。他常在西湖畔赏景思索，也爱泡书斋探寻古人智慧。</p>
+            <h3>初入仕途 · 1054年</h3>
+            <p>沈括任沭阳县主簿。当地水患多，他带百姓治水，改善农业，获百姓称赞。</p>
+            <h3>科举中第 · 1063年</h3>
+            <p>沈括在科举中排名第，此后在朝廷任多职，为国家发展建言献策。</p>
+        </div>
+        <!-- 更多年谱条目... -->
+    </div>
+</section>
+
+<!--第六页-->
+<section class="page" id="page4">
+    <div class="story-card">
+        <h2>梦溪奇谭</h2>
+        <div class="auto-reveal">
+            <h3>笔谈精要</h3>
+            <p>沈括《梦溪笔谈》卷二十四《象数》中，以 “日月之形如丸” 突破传统宇宙观，提出 “月本无光，犹银丸，日耀之乃光耳”，并以 “粉涂弹丸，侧视如钩，对视正圜” 的实验模拟月相，展现古代实证科学思维。其对日月运行的观察已含天体互动认知，测算朔望月周期精度极高，为后世历法奠定基础。</p>
+            <h3>笔谈精要</h3>
+            <p>卷十八《技艺》记载毕昇活字印刷术，详述 “胶泥刻字，火烧令坚” 的制字工艺，及 “松脂、蜡和纸灰” 固定活字的技术，强调 “印数十百千本则神速” 的高效性。毕昇首创的胶泥活字、字模分类（“每韵一帖，木格贮之”）等，构成现代活字印刷雏形。沈括的记录不仅是该技术唯一早期文献，更以精准笔触留存了宋代科技的璀璨创造，堪称文明传承的关键注脚。</p>
+        </div>
+        <!-- 更多年谱条目... -->
+    </div>
+</section>
+
+<!-- 第七页：工坊 -->
+<section class="page" id="page6">
+    <div class="workshop-buttons">
+        <button class="workshop-btn" data-content="typesetting">活字排韵</button>
+        <button class="workshop-btn" data-content="astronomy">观天测宇</button>
+    </div>
+</section>
+
+<!-- 子页面模板 -->
+<div id="subpage-container" style="display:none;">
+    <button onclick="closeSubpage()">返回</button>
+    <div id="subpage-content"></div>
+</div>
+
+    <script>
+        // 页面导航逻辑
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const pageIndex = entry.target.id.replace('page', '');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    updateNav(pageIndex);
+                    if(pageIndex == 4 || pageIndex == 5) initAutoReveal(pageIndex);
+                }
+            });
+        }, { threshold: 0.25 });
+
+        function showSubpage(content) {
+    const container = document.getElementById('subpage-container');
+    container.style.display = 'block';
+    document.getElementById('subpage-content').innerHTML = content;
+    
+    // 初始化Three.js场景
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(800, 600);
+    document.getElementById('subpage-content').appendChild(renderer.domElement);
+
+    // 加载模型
+    const loader = new THREE.GLTFLoader();
+    loader.load('model.gltf', function(gltf) {
+        scene.add(gltf.scene);
+        animate();
+    });
+}
+
+        // 自动浮现逻辑
+        function initAutoReveal(pageIndex) {
+            const elements = document.querySelectorAll(`#page${pageIndex} .auto-reveal`);
+            elements.forEach((el, index) => {
+                setTimeout(() => el.style.opacity = 1, index * 300);
+            });
+        }
+
+        // 工坊交互
+        function initWorkshop() {
+            document.querySelectorAll('.workshop-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const content = document.getElementById(btn.dataset.content);
+                    showSubpage(content.innerHTML);
+                });
+            });
+        }
+
+        // 初始化
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.page').forEach(page => observer.observe(page));
+            initWorkshop();
+        });
+    </script>
+</body>
+</html>
