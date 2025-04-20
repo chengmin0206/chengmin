@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            background-image: url('印刷/工坊.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            padding: 40px;
+            border: 1px solid #888;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .new-modal {
+            display: none;
+            position: fixed;
+            z-index: 2;
+            right: 20px;
+            bottom: 20px;
+            background-color: #ffffff;
+            border: 1px solid #888;
+            border-radius: 5px;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        #gameMakingPage {
+            display: none;
+            padding: 50px;
+            background-image: none;
+            background-color: #ffffff;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 20px;
+            border-radius: 10px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 70%;
+            pointer-events: all;
+        }
+
+        #sixthModal.modal-content {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            transform: none;
+            width: auto;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        #seventhModal {
+            display: none;
+            position: fixed;
+            z-index: 2;
+            right: 20px;
+            bottom: 20px;
+            background-color: #ffffff;
+            border: 1px solid #888;
+            border-radius: 5px;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        /* 添加 fadeOut 动画定义 */
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        /* 添加加载提示样式 */
+        #loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading">加载中...</div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <p>活字印刷小游戏</p>
+        </div>
+    </div>
+
+    <div id="newModal" class="new-modal">
+        <p>开始制作</p>
+    </div>
+
+    <div id="gameMakingPage">
+        <h1>塑形、刻字</h1>
+    </div>
+
+    <div id="fourthModal" class="modal">
+        <div class="modal-content">
+            <p>刻字成功,开始烧制吧</p>
+        </div>
+    </div>
+
+    <div id="newClickableModal" class="new-modal">
+        <p>点击继续</p>
+    </div>
+
+    <div id="fifthModal" class="modal">
+        <div class="modal-content">
+            <p>烧制中</p>
+        </div>
+    </div>
+
+    <div id="sixthModal" class="modal">
+        <div class="modal-content">
+            <p>点击继续</p>
+        </div>
+    </div>
+
+    <div id="seventhModal">
+        <p>印刷</p>
+    </div>
+
+    <script>
+        console.log('JavaScript 代码开始执行');
+        const loadingElement = document.getElementById('loading');
+        if (!loadingElement) {
+            console.error('未找到加载提示元素');
+        }
+
+        const mainModal = document.getElementById('myModal');
+        if (!mainModal) {
+            console.error('未找到 myModal 元素');
+        }
+
+        const newModal = document.getElementById('newModal');
+        if (!newModal) {
+            console.error('未找到 newModal 元素');
+        }
+
+        const gameMakingPage = document.getElementById('gameMakingPage');
+        if (!gameMakingPage) {
+            console.error('未找到 gameMakingPage 元素');
+        }
+
+        const bodyElement = document.body;
+        const fourthModal = document.getElementById('fourthModal');
+        if (!fourthModal) {
+            console.error('未找到 fourthModal 元素');
+        }
+
+        const fifthModal = document.getElementById('fifthModal');
+        console.log('fifthModal:', fifthModal);
+
+        const newClickableModal = document.getElementById('newClickableModal');
+        if (!newClickableModal) {
+            console.error('未找到 newClickableModal 元素');
+        }
+
+        const sixthModal = document.getElementById('sixthModal');
+        if (!sixthModal) {
+            console.error('未找到 sixthModal 元素');
+        }
+
+        const seventhModal = document.getElementById('seventhModal');
+        if (!seventhModal) {
+            console.error('未找到 seventhModal 元素');
+        }
+
+        if (mainModal) {
+            mainModal.style.animation = "fadeOut 2s forwards";
+        }
+
+        function hideLoading() {
+            if (loadingElement) {
+                loadingElement.style.display = 'none';
+            }
+        }
+
+        window.onload = function () {
+            console.log('页面加载完成');
+            if (mainModal) {
+                mainModal.style.display = "block";
+            }
+
+            setTimeout(function () {
+                if (mainModal) {
+                    mainModal.style.display = "none";
+                }
+                if (newModal) {
+                    newModal.style.display = "block";
+                }
+                hideLoading();
+            }, 2000);
+        };
+
+        if (newModal) {
+            newModal.addEventListener('click', function () {
+                console.log('newModal 被点击');
+                if (newModal) {
+                    newModal.style.display = "none";
+                }
+                const newBackground = new Image();
+                newBackground.src = '印刷/泥巴.PNG';
+                newBackground.onload = function () {
+                    console.log('新背景图片加载成功');
+                    if (bodyElement) {
+                        bodyElement.style.backgroundImage = `url('印刷/泥巴.PNG')`;
+                    }
+                    if (gameMakingPage) {
+                        setTimeout(function () {
+                            gameMakingPage.style.display = "block";
+                        }, 1000);
+                    }
+                };
+                newBackground.onerror = function () {
+                    console.error('新背景图片加载失败，请检查图片路径：', newBackground.src);
+                    alert('新背景图片加载失败，请检查控制台信息');
+                };
+            });
+        }
+
+        if (gameMakingPage) {
+            gameMakingPage.addEventListener('click', function () {
+                console.log('gameMakingPage 被点击');
+                if (gameMakingPage) {
+                    this.style.display = 'none';
+                }
+                const nextBackground = new Image();
+                nextBackground.src = '印刷/字刻好.png';
+                nextBackground.onload = function () {
+                    console.log('字刻好背景图片加载成功');
+                    if (bodyElement) {
+                        bodyElement.style.backgroundImage = `url('印刷/字刻好.png')`;
+                    }
+                    if (fourthModal) {
+                        fourthModal.style.display = 'block';
+                        setTimeout(function () {
+                            if (fourthModal) {
+                                fourthModal.style.display = 'none';
+                            }
+                            if (newClickableModal) {
+                                newClickableModal.style.display = 'block';
+                            }
+                        }, 1500);
+                    }
+                };
+                nextBackground.onerror = function () {
+                    console.error('背景图片加载失败，请检查图片路径：', nextBackground.src);
+                    alert('背景图片加载失败，请检查控制台信息');
+                };
+            });
+        }
+
+        if (newClickableModal) {
+            newClickableModal.addEventListener('click', function () {
+                console.log('newClickableModal 被点击');
+                const clickableBackground = new Image();
+                clickableBackground.src = '印刷/烧制.png';
+                clickableBackground.onload = function () {
+                    console.log('烧制背景图片加载成功');
+                    if (bodyElement) {
+                        bodyElement.style.backgroundImage = `url('印刷/烧制.png')`;
+                    }
+                    if (fifthModal) {
+                        fifthModal.style.display = 'block';
+                        setTimeout(function () {
+                            if (fifthModal) {
+                                fifthModal.style.display = 'none';
+                            }
+                            if (sixthModal) {
+                                sixthModal.style.display = 'block';
+                            }
+                        }, 1500);
+                    }
+                };
+                clickableBackground.onerror = function () {
+                    console.error('背景图片加载失败，请检查图片路径：', clickableBackground.src);
+                    alert('背景图片加载失败，请检查控制台信息');
+                };
+                if (newClickableModal) {
+                    this.style.display = 'none';
+                }
+                console.log('新的可点击模态框被点击了');
+            });
+        }
+
+        if (sixthModal) {
+            sixthModal.addEventListener('click', function () {
+                console.log('sixthModal 被点击');
+                const newBackgroundImage = new Image();
+                newBackgroundImage.src = '印刷/烧制成功.png';
+
+                newBackgroundImage.onload = function () {
+                    console.log('烧制成功背景图片加载成功');
+                    if (bodyElement) {
+                        bodyElement.style.backgroundImage = `url('印刷/烧制成功.png')`;
+                    }
+                    if (seventhModal) {
+                        seventhModal.style.display = 'block';
+                    }
+                };
+
+                newBackgroundImage.onerror = function () {
+                    console.error('新背景图片加载失败，请检查图片路径：', newBackgroundImage.src);
+                    alert('新背景图片加载失败，请检查控制台信息');
+                };
+
+                console.log('sixthModal 被点击了');
+                if (sixthModal) {
+                    this.style.display = 'none';
+                }
+            });
+        }
+
+        if (seventhModal) {
+            seventhModal.addEventListener('click', function () {
+                console.log('seventhModal 被点击');
+                const newBackgroundImage = new Image();
+                newBackgroundImage.src = '印刷/印刷成功.png';
+
+                newBackgroundImage.onload = function () {
+                    console.log('印刷成功背景图片加载成功');
+                    if (bodyElement) {
+                        bodyElement.style.backgroundImage = `url('印刷/印刷成功.png')`;
+                    }
+                };
+
+                newBackgroundImage.onerror = function () {
+                    console.error('新背景图片加载失败，请检查图片路径：', newBackgroundImage.src);
+                    alert('新背景图片加载失败，请检查控制台信息');
+                };
+
+                console.log('seventhModal 被点击了');
+                if (seventhModal) {
+                    this.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
