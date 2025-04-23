@@ -7,11 +7,147 @@
     <title>梦溪小筑·古代物理交互手账</title>
     <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/4.css">
+    <style>
+        .timeline-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+       .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+       .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: #333;
+            transform: translateX(-50%);
+        }
+
+       .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+            padding: 20px;
+        }
+
+       .timeline-item:nth-child(odd) {
+            margin-left: auto;
+            padding-left: 60px;
+        }
+
+       .timeline-item:nth-child(even) {
+            margin-right: auto;
+            padding-right: 60px;
+            text-align: right;
+        }
+
+       .timeline-marker {
+            position: absolute;
+            top: 30px;
+            width: 16px;
+            height: 16px;
+            background: #4a90e2;
+            border-radius: 50%;
+            border: 3px solid #fff;
+        }
+
+       .timeline-item:nth-child(odd).timeline-marker {
+            left: -8px;
+        }
+
+       .timeline-item:nth-child(even).timeline-marker {
+            right: -8px;
+        }
+
+       .timeline-content {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+       .timeline-content h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+       .timeline-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+       .content-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+           .timeline::before {
+                left: 20px;
+            }
+
+           .timeline-item {
+                width: 100%;
+                padding: 20px 0 0 40px;
+                margin-left: 0;
+            }
+
+           .timeline-item:nth-child(even) {
+                text-align: left;
+                padding: 20px 0 0 40px;
+            }
+
+           .timeline-marker {
+                left: 12px !important;
+                right: auto !important;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            margin-top: 50px;
+        }
+
+       .tooltip {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            z-index: 10;
+        }
+
+       .workshop-page button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+       .workshop-page button:hover {
+            background-color: #3a78c2;
+        }
+    </style>
 </head>
 
-
 <body>
-  
+
     <nav class="nav-panel">
         <div class="nav-item active" data-page="0" style="background-image: url('picture/计算机设计大赛封面图设计.png')"></div>
         <div class="nav-item" data-page="1" style="background-image: url('picture/图片4.png')"></div>
@@ -23,7 +159,6 @@
         <div class="nav-item" data-page="7" style="background-image: url('picture/图片5.png')"></div>
     </nav>
 
-    
     <section class="page active" id="page0">
         <h1 class="main-title">梦溪小筑·古代物理交互手账</h1>
         <p style="text-align: center; font-size: 1.4em;"> ———五颜六色的白</p>
@@ -31,10 +166,8 @@
             <img src="picture/计算机设计大赛封面图设计.png" class="cover-image" alt="封面图1">
             <img src="picture/封面2.png" class="cover-image" alt="封面图2">
         </div>
-       
     </section>
 
-   
     <section class="page" id="page1">
         <div class="story-card">
             <h2>汴京奇遇</h2>
@@ -43,7 +176,6 @@
         </div>
     </section>
 
-    
     <section class="page" id="page2">
         <div class="story-card">
             <h2>庭院初遇</h2>
@@ -52,7 +184,6 @@
         </div>
     </section>
 
-    
     <section class="page" id="page3">
         <div class="story-card">
             <h2>沈括年谱</h2>
@@ -84,100 +215,7 @@
             <img src="picture/图片1.jpg" class="content-image" alt="沈括年谱相关插图">
         </div>
     </section>
-    
-    <style>
-        .timeline-container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 20px;
-            position: relative; 
-            z-index: 2; 
-        }
-       .timeline {
-            position: relative;
-            padding: 40px 0;
-        }
-       .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            width: 2px;
-            height: 100%;
-            background: #333;
-            transform: translateX(-50%);
-        }
-       .timeline-item {
-            position: relative;
-            margin-bottom: 50px;
-            width: 50%;
-            padding: 20px;
-        }
-       .timeline-item:nth-child(odd) {
-            margin-left: auto;
-            padding-left: 60px;
-        }
-       .timeline-item:nth-child(even) {
-            margin-right: auto;
-            padding-right: 60px;
-            text-align: right;
-        }
-       .timeline-marker {
-            position: absolute;
-            top: 30px;
-            width: 16px;
-            height: 16px;
-            background: #4a90e2;
-            border-radius: 50%;
-            border: 3px solid #fff;
-        }
-       .timeline-item:nth-child(odd).timeline-marker {
-            left: -8px;
-        }
-       .timeline-item:nth-child(even).timeline-marker {
-            right: -8px;
-        }
-    
-       .timeline-content {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-       .timeline-content h3 {
-            color: #2c3e50;
-            margin-top: 0;
-        }
-       .timeline-content p {
-            color: #666;
-            line-height: 1.6;
-        }
-       .content-image {
-            max-width: 100%; 
-            height: auto;
-            margin-top: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        @media (max-width: 768px) {
-           .timeline::before {
-                left: 20px;
-            }
-           .timeline-item {
-                width: 100%;
-                padding: 20px 0 0 40px;
-                margin-left: 0;
-            }
-           .timeline-item:nth-child(even) {
-                text-align: left;
-                padding: 20px 0 0 40px;
-            }
-           .timeline-marker {
-                left: 12px !important;
-                right: auto !important;
-            }
-        }
-    </style>
-    
+
     <section class="page" id="page4">
         <div class="story-card">
             <h2>梦溪奇谭·1</h2>
@@ -188,7 +226,6 @@
         </div>
     </section>
 
-    
     <section class="page" id="page5">
         <div class="story-card">
             <h2>墨韵工坊</h2>
@@ -207,7 +244,6 @@
         </div>
     </section>
 
-   
     <section class="page" id="page6">
         <div class="story-card">
             <h2>是告别 是开始</h2>
@@ -224,9 +260,7 @@
         </div>
     </section>
 
-
     <script>
-        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 const pageIndex = entry.target.id.replace('page', '');
@@ -239,7 +273,6 @@
 
         document.querySelectorAll('.page').forEach(page => observer.observe(page));
 
-     
         function updateNav(index) {
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
@@ -247,9 +280,7 @@
             });
         }
 
-        const timelineData = [
-           
-        ];
+        const timelineData = [];
 
         function initTimeline() {
             const container = document.createElement('div');
@@ -265,7 +296,6 @@
             document.querySelector('#page3').appendChild(container);
         }
 
-       
         function showWorkshop(type) {
             if (type === 'typesetting-content') {
                 window.open('小游戏/印刷.html', '_blank');
@@ -276,10 +306,12 @@
                     <style>${document.querySelector('style').innerHTML}</style>
                     ${content}
                 `);
+                newWindow.document.querySelector('button').addEventListener('click', () => {
+                    newWindow.close();
+                });
             }
         }
 
-     
         window.onload = () => {
             initTimeline();
             document.querySelectorAll('.nav-item').forEach(item => {
@@ -327,34 +359,14 @@
             <video controls src="picture/3D模型演视视频.mp4" class="content-video"></video>
             <p>在古代中国，浑仪就像一台神秘的“星空测绘仪”，由层层同心圆环组成，专门用来测量日月星辰的位置。从汉代张衡到唐代李淳风，一代代天文学家不断改进，但复杂的结构反而成了观测的“绊脚石”。</p>
             <p> 1072年，北宋因日食预报失误急需革新历法，沈括临危受命，扛起了改造浑仪的重任。他做的第一件事就是“断舍离”：果断去掉白道环，让赤道环和黄道环清晰可见，再也不怕视野被遮挡！面对北极星位置偏差的难题，沈括化身“星空侦探”，连续多夜蹲守观测，终于找准天球北极，精准校准浑仪极轴。</p>
-            <p>他还为浑仪升级“硬件”：用铜铸环圈、精铁轴承，将刻度精度提升到0.25度；创新“软件”系统，提出多人分工观测和晷影校正法。沈括的这些创举，不仅让浑仪观测更精准，更为后世研究岁差奠定基础，甚至启发郭守敬发明了现代赤道仪的雏形——简仪，自称古代天文仪器界的“技术革命”！</p>
+            <p>他还为浑仪升级“硬件”：用铜铸环圈、精铁轴承，将刻度精度提升到0.25度；创新“软件”系统，提出多人分工观测和晷影校正法。沈括的这些创举，不仅让浑仪观测更精准，更为后世研究岁差奠定基础，甚至启发郭守敬发明了现代赤道仪的雏形——简仪，堪称古代天文仪器界的“技术革命”！</p>
+            <button onclick="window.close()">返回</button>
         </div>
-        <button id="backButton">返回</button>
     </template>
-
-    <script>
-        // 获取 backButton 元素
-        const backButton = document.getElementById('backButton');
-        if (backButton) {
-            backButton.addEventListener('click', function () {
-                // 假设源代码.html 在上级目录
-                window.location.href = '../源代码.html#page5';
-            });
-        }
-    </script>
-
 
     <footer>
         <p>西北民族大学 新闻传播学院 2023级新闻学1班 成敏 | 2023级新闻学2班 刘轩 | 2023级新闻学1班 郭仪</p>
     </footer>
-    <style>footer {
-        text-align: center;
-        padding: 30px;
-        background: rgba(0,0,0,0.3);
-        margin-top: 50px;
-    }</style>
-    
 </body>
 
-</html>
-    
+</html>    

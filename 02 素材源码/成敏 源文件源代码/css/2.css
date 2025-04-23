@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'ZCOOL XiaoWei', serif; /* 取文档中的古风字体 */
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(#1a2f28, #0f1e1a); /* 文档中的深色主题 */
+    overflow: hidden;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* 全屏五分之四图片（80vh高度） */
+.story-image {
+    max-height: 80vh;
+    width: auto;
+    display: block;
+    border: 6px solid #c9a769; /* 文档中的古铜色边框 */
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.4s ease;
+    margin-bottom: 30px;
+}
+
+.story-image.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* 100%宽度文本框 */
+.text-container {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(26, 47, 40, 0.92);
+    color: #fff;
+    border: 2px solid #c9a769;
+    border-radius: 15px;
+    padding: 25px 35px;
+    line-height: 1.8;
+    font-size: 1.2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    text-align: justify;
+}
+
+.text-container.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 右下角返回按钮（初始隐藏） */
+.back-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 12px 25px;
+    background-color: #c9a769;
+    color: #1a2f28;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.back-button.show {
+    transform: scale(1);
+}
