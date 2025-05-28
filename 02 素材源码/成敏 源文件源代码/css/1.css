@@ -1,0 +1,333 @@
+:root {
+    --ink-color: #2c443d;
+    --paper-color: #f5f0e1;
+    --accent-gold: #c9a769;
+    --dark-green: #1a2f28;
+    --main-green: #2c5f2d;
+    --background-color: #e6e2d9;
+}
+
+body {
+    margin: 0;
+    background: 
+        linear-gradient(45deg, 
+            rgba(26,47,40,0.9) 0%, 
+            rgba(44,95,45,0.9) 100%),
+        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoWWpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0uqwS5ExsmP9AxbDTc9JwgneAT5vTiUSm1E7BSflSt3bfa1tv8Di3R8n3Af7MNWzs49hmauE2wP+ttrq+AsWpFG2awvsuOqbipWHgtuvuaAE+A1Z/7gC9hesnr+7wqCwG8c5yAg3AL1fm8T9AZtp/bbJGwl1pNrE7RuOX7PeMRUERVaPpEs+yqeoSmuOlokqw49pgomjLeh7icHNlG19yjs6XXOMedYm5xH2YxpV2tc0Ro2jJfxC50ApuxGob7lMsxfTbeUv07TyYxpeLucEH1gNd4IKH2LAg5TdVhlCafZvpskfncCfx8pOhJzd76bJWeYFnFciwcYfubRc12Ip/ppIhA1/mSZ/RxjFDrJC5xifFjJpY2Xl5zXdguFqYyTR1zSp1Y9p+tktDYYSNflcxI0iyO4TPBdlRcpeqj88/APVx4X5LAA5BSTg9AiUUztT9aj8AbPDZ73JudDJc6k7eRIqy1nEUJI9vg5TBY4A0nqjNGuruYLiYlOrmPHXIZKPpWUxGFkLZoAF3g1l4RoCAAAArXpUWHRSYXcgcHJvZmlsZSB0eXBlIGlwdGMAAHic4/IMCHFWKCjKT8vMSeVSAAMjCy5jCxMjE0MjEzAHcxAHi5A0DxRwQYgBALJBCZ5DsvZQAAAAAElFTkSuQmCC');
+    background-color: var(--background-color);
+    font-family: 'Ma Shan Zheng', cursive;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    color: var(--ink-color);
+}
+
+/* 动态卷轴背景 */
+.scroll-effect {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            rgba(245,240,225,0.1) 0px,
+            rgba(245,240,225,0.1) 39px,
+            rgba(200,180,150,0.15) 40px
+        );
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+/* 导航栏 */
+.nav-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(245,240,225,0.95);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    border-bottom: 2px solid var(--accent-gold);
+    transition: top 0.3s ease;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.nav-item {
+    margin: 0 2.5rem;
+    cursor: pointer;
+    font-size: 1.4rem;
+    color: var(--dark-green);
+    position: relative;
+    transition: 0.3s all;
+    padding: 0.5rem 1rem;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-gold);
+    transition: 0.3s all;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* 主标题 */
+.main-title {
+    text-align: center;
+    font-size: 4rem;
+    color: var(--paper-color);
+    margin: 120px auto 50px;
+    text-shadow: 3px 3px 0 var(--dark-green);
+    position: relative;
+    letter-spacing: 0.2rem;
+    animation: fadeInUp 1s ease;
+}
+
+.main-title::before {
+    content: '❁';
+    position: absolute;
+    left: -50px;
+    top: -30px;
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+}
+
+/* 内容区块 */
+.content-section {
+    display: none;
+    max-width: 1000px;
+    margin: 150px auto 80px;
+    padding: 3rem;
+    background: rgba(245,240,225,0.95);
+    border: 3px solid var(--accent-gold);
+    border-radius: 5px;
+    box-shadow: 15px 15px 30px rgba(0,0,0,0.3);
+    animation: fadeIn 0.5s ease;
+}
+
+/* 时间线布局 */
+.timeline {
+    position: relative;
+    padding: 40px 0;
+}
+
+.timeline-item {
+    margin: 40px 0;
+    padding-left: 200px;
+    position: relative;
+}
+
+.timeline-year {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+/* 折叠面板 */
+.accordion {
+    border: 2px solid var(--dark-green);
+    margin: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.accordion-header {
+    padding: 1rem;
+    background: var(--dark-green);
+    color: var(--paper-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+    background: #23433a;
+}
+
+/* 图片画廊 */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    transition: 0.3s transform;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid var(--accent-gold);
+    transition: filter 0.3s ease;
+}
+
+.gallery-item:hover img {
+    filter: brightness(1.1);
+}
+
+/* 游戏入口 */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.game-card {
+    background: rgba(255,255,255,0.9);
+    border: 3px solid var(--dark-green);
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s all;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.game-card::after {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(201,167,105,0.2) 50%,
+        transparent 100%
+    );
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* 剧情弹窗 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--paper-color);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    position: relative;
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 云雾效果 */
+.clouds {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/png;base64,iVBORw0KGgo...') repeat;
+    animation: cloudMove 20s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes cloudMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 0; }
+}
+
+/* 动态水墨效果 */
+.ink-effect {
+    position: absolute;
+    background: radial-gradient(circle, var(--main-green) 10%, transparent 60%);
+    filter: blur(20px);
+    transform: translate(-50%, -50%);
+    animation: inkFade 10s infinite;
+}
+
+@keyframes inkFade {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
